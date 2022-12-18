@@ -1,0 +1,44 @@
+{
+    "users": [
+        {
+            "username": "admin",
+            "password": "admin",
+            "id": 0
+        },
+        {
+            "username": "barbara",
+            "password": "admin",
+            "id": 1
+        },
+        {
+            "username": "matheus",
+            "password": "admin",
+            "id": 2
+        },
+        {
+            "username": "pedro",
+            "password": "admin",
+            "id": 3
+        },
+        {
+            "username": "valmir",
+            "password": "admin",
+            "id": 4
+        },
+        {
+            "username": "renata",
+            "password": "admin",
+            "id": 5
+        },
+        {
+            "username": "luisheloy",
+            "password": "admin",
+            "id": 6
+        },
+        {
+            "username": "nikolatesla",
+            "password": "admin",
+            "id": 7
+        }
+    ]
+}
