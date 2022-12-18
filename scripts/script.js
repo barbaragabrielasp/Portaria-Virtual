@@ -44,6 +44,7 @@ var current = new Date();
 var current_id
 
 var generate_area = document.getElementById("generate_area");
+var login_area = document.getElementById("login_area");
 
 login_area.style.visibility = "visible";
 generate_area.style.visibility = "hidden";
@@ -57,6 +58,7 @@ function login() {
             // user logged in
             // document.location.href = "logged.html";
             generate_area.style.visibility = "visible";
+            login_area.style.visibility = "hidden";
             userInfo(users[i].id);
             current_id = users[i].id;
             return;
@@ -87,8 +89,8 @@ function generateCode() {
 
 // qrcode script
 var qrcode = new QRCode(document.getElementById("qrcode"), {
-    width : 100,
-    height : 100
+    width : 500,
+    height : 500
 });
 
 function makeCode (code) {		
