@@ -78,6 +78,30 @@ function generateCode() {
     generated_time = current.toLocaleTimeString();
 
     var code = user_id + ":" + building_id + ":" + room_id + ":" + generated_time + ":" + passphrase;
-    alert(btoa(String(code)));
-    alert(code);
+    makeCode(btoa(String(code)));
 }
+
+// qrcode script
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    width : 100,
+    height : 100
+});
+
+function makeCode (code) {		
+    var elText = document.getElementById("text");
+    elText.value = code;
+    
+    qrcode.makeCode(elText.value);
+}
+
+makeCode();
+
+$("#text").
+    on("blur", function () {
+        makeCode();
+    }).
+    on("keydown", function (e) {
+        if (e.keyCode == 13) {
+            makeCode();
+        }
+    });
