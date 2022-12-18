@@ -69,13 +69,17 @@ function userInfo(user_id) {
     alert("user " + users[user_id].username + " logged in successfully");
 }
 
+function getCurrentTimestamp() {
+    return Date.now()
+}
+
 function generateCode() {
     var user_id = current_id;
     var building_id = document.getElementById("select_building").value;
     var room_id = document.getElementById("select_room").value;
     var passphrase = "viva-la-revolucion";
     var generated_time = new Date();
-    generated_time = current.toLocaleTimeString();
+    generated_time = getCurrentTimestamp();
 
     var code = user_id + ":" + building_id + ":" + room_id + ":" + generated_time + ":" + passphrase;
     makeCode(btoa(String(code)));
