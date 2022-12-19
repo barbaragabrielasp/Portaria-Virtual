@@ -1,66 +1,75 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Portaria Virtual</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles/style.css">
-        <!-- qrcode library -->
-        <script type="text/javascript" src="jquery.min.js"></script>
-	    <script type="text/javascript" src="qrcode.js"></script>
-    </head>
-    <body>
-        <!-- login -->
-        <div id="login_area">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="images/logo.png" class="img-fluid rounded-start" alt="logo">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Área de Login</h5>
-                            <div class="d-grid gap-2">
-                                <input type="text" class="form-control" placeholder="Usuário" aria-label="Username" aria-describedby="basic-addon1" id="username">
-                                <input type="password" class="form-control" placeholder="Senha" aria-label="Password" aria-describedby="basic-addon1" id="password">
-                                <button class="btn btn-primary" type="button" onclick="login()">Entrar</button>
-                            </div>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portaria Virtual</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- qrcode library -->
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="qrcode.js"></script>
+</head>
+
+<body>
+    <!-- login -->
+    <div id="login_area">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="images/logo.png" class="img-fluid rounded-start" alt="logo">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Área de Login</h5>
+                        <div class="d-grid gap-2">
+                            <input type="text" class="form-control" placeholder="Usuário" aria-label="Username"
+                                aria-describedby="basic-addon1" id="username">
+                            <input type="password" class="form-control" placeholder="Senha" aria-label="Password"
+                                aria-describedby="basic-addon1" id="password">
+                            <button class="btn btn-primary" type="button" onclick="login()">Entrar</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- generate qrcode -->
-        <div id="generate_area">
-            <div class="input-group mb-3">
-                <select class="form-select" id="select_building">
-                    <option selected>Selecione um prédio</option>
-                    <option value="1">Prédio 1</option>
-                    <option value="2">Prédio 2</option>
-                    <option value="3">Prédio 3</option>
-                </select>
-                <select class="form-select" id="select_room">
-                    <option selected>Selecione uma sala</option>
-                    <option value="1">Sala 1</option>
-                    <option value="2">Sala 2</option>
-                    <option value="3">Sala 3</option>
-                </select>
-            </div>
-            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onclick="generateCode()">Gerar QRCode</button>
-            
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    <!-- qrcode generated -->
-                    <span id="text" value="">
-                    <div id="qrcode" style="width:100%; height:100%; margin-top:20px;"></div>
-                </div>
+    <!-- generate qrcode -->
+    <div id="generate_area">
+        <div class="input-group mb-3">
+            <select class="form-select" id="select_building">
+                <option selected>Selecione um prédio</option>
+                <option value="1">Prédio 1</option>
+                <option value="2">Prédio 2</option>
+                <option value="3">Prédio 3</option>
+            </select>
+            <select class="form-select" id="select_room">
+                <option selected>Selecione uma sala</option>
+                <option value="1">Sala 1</option>
+                <option value="2">Sala 2</option>
+                <option value="3">Sala 3</option>
+            </select>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample" onclick="generateCode()">Gerar QRCode</button>
+
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <!-- qrcode generated -->
+                <span id="text" value="">
+                    <div class="qrcode" id="qrcode"></div>
             </div>
         </div>
+    </div>
 
-        <!-- bootstrap and general script -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-        <script src="scripts/script.js"></script>
-    </body>
+    <!-- bootstrap and general script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="scripts/script.js"></script>
+</body>
+
 </html>

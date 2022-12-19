@@ -53,8 +53,8 @@ function login() {
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
-    for(i = 0; i < users.length; i++) {
-        if(username == users[i].username && password == users[i].password) {
+    for (i = 0; i < users.length; i++) {
+        if (username == users[i].username && password == users[i].password) {
             // user logged in
             // document.location.href = "logged.html";
             generate_area.style.visibility = "visible";
@@ -89,14 +89,14 @@ function generateCode() {
 
 // qrcode script
 var qrcode = new QRCode(document.getElementById("qrcode"), {
-    width : 500,
-    height : 500
+    width: 1000,
+    height: 1000
 });
 
-function makeCode (code) {		
+function makeCode(code) {
     var elText = document.getElementById("text");
     elText.value = code;
-    
+
     qrcode.makeCode(elText.value);
 }
 
