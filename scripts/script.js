@@ -89,8 +89,8 @@ function generateCode() {
 
 // qrcode script
 var qrcode = new QRCode(document.getElementById("qrcode"), {
-    width: 1000,
-    height: 1000
+    width: 250,
+    height: 250
 });
 
 function makeCode(code) {
